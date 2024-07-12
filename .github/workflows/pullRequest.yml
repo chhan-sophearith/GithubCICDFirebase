@@ -13,7 +13,7 @@ jobs:
         run: /usr/bin/xcodebuild -version
 
       - name: checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install the Apple certificate and provisioning profile
         env:
@@ -62,7 +62,7 @@ jobs:
           xcodebuild -exportArchive -archivePath $RUNNER_TEMP/GithubCICDFirebase.xcarchive -exportOptionsPlist $EXPORT_OPTS_PATH -exportPath $RUNNER_TEMP/build          
 
       - name: Upload application
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: app
           path: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
@@ -76,22 +76,3 @@ jobs:
           #releaseNotes: 'sdvjsifv fl.vnfsv f'
           groups: 'testers'
           file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
-          
-
-      # - name: Install Firebase Tools
-      #   run: curl -sL https://firebase.tools | upgrade=true bash
-
-      # - name: List Files in Build Directory
-      #   run: ls ${{ runner.temp }}/build
-        
-      # - name: Print Current Directory
-      #   run: pwd
-
-      # - name: Install Firebase Tools
-      #   run: curl -sL https://firebase.tools | upgrade=true bash
-
-      # - name: Distribute to Firebase
-      #   env:
-      #     serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-      #   run: |
-      #        firebase appdistribution:distribute $RUNNER_TEMP/build/GithubCICDFirebase.ipa --app ${{ secrets.FIREBASE_APP_ID }} --release-notes "Your release notes here" --groups testers
