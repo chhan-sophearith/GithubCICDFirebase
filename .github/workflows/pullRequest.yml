@@ -1,12 +1,19 @@
-name: "Build iOS app"
+name: "Build iOS App to Firebase"
 
 on:
   pull_request:
     branches:
       - develop
   workflow_dispatch:
+    inputs:
+      release_notes:
+        type: string
+        required: true
+        default: 'Testing Check'
+        description: 'Change in run-on- macos-latest'
+
 jobs:
-  build_with_signing:
+  BuildIPAFirebase:
     runs-on: macos-latest
     steps:
       - name: check Xcode version
