@@ -76,10 +76,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: app
-          path: ${{ runner.temp }}/build
+          path: '/Users/runner/work/_temp/build' #${{ runner.temp }}/build
 
       - name: List files in artifact directory
-        run: ls -l ${{ runner.temp }}/build
+        run: ls -l '/Users/runner/work/_temp/build'
 
       - name: Upload to Firebase App Distribution
         if: success()  # Ensure the previous step succeeded before attempting deployment
