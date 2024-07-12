@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 jobs:
   build_with_signing:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: check Xcode version
         run: /usr/bin/xcodebuild -version
@@ -100,14 +100,14 @@ jobs:
       #         -H "Authorization: Bearer ${{ secrets.FIREBASE_TOKEN }}" \
       #         "https://firebaseappdistribution.googleapis.com/v1alpha/apps/${{ secrets.FIREBASE_APP_ID }}/releases"
 
-      # - name: Upload a Build Firebase
-      #   uses: mastersam07/firebase-app-distribution-action@v0.1
-      #   with:
-      #     appId: ${{ secrets.FIREBASE_APP_ID }}
-      #     serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-      #     #releaseNotes: 'sdvjsifv fl.vnfsv f'
-      #     groups: testers
-      #     file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
+      - name: Upload a Build Firebase
+        uses: mastersam07/firebase-app-distribution-action@v0.1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+          #releaseNotes: 'sdvjsifv fl.vnfsv f'
+          groups: testers
+          file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
           
 
       # - name: Install Firebase Tools
