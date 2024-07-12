@@ -68,14 +68,14 @@ jobs:
           path: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
           retention-days: 3
 
-      # - name: Upload a Build Firebase
-      #   uses: wzieba/Firebase-Distribution-Github-Action@v1
-      #   with:
-      #     appId: ${{ secrets.FIREBASE_APP_ID }}
-      #     serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-      #     groups: testers
-      #     file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
-      #     releaseNotes: 'sdvjsifv fl.vnfsv f'
+      - name: Upload a Build Firebase
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+          groups: testers
+          file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
+          releaseNotes: 'sdvjsifv fl.vnfsv f'
 
       # - name: Install Firebase Tools
       #   run: curl -sL https://firebase.tools | upgrade=true bash
