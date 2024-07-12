@@ -75,8 +75,7 @@ jobs:
       - name: Debugging Information
         run: |
           echo "Runner temp directory: $RUNNER_TEMP"
-          ls -la $RUNNER_TEMP
-          ls -la $RUNNER_TEMP/build
+          ls -la ${{ runner.temp }}
 
       - name: Upload a Build to Firebase
         uses: mastersam07/firebase-app-distribution-action@v0.1
@@ -85,4 +84,4 @@ jobs:
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
         #  releaseNotes: ${{ github.event.inputs.release_notes }}
           groups: 'testers'
-          file: ${{ runner.temp }}/GithubCICDFirebase.ipa
+          file: /Users/runner/work/_temp/build/GithubCICDFirebase.ipa
