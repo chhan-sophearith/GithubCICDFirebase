@@ -78,9 +78,6 @@ jobs:
           ls -la ${{ runner.temp }}/build
           echo ${{ secrets.FIREBASE_TOKEN }}
           ls -la $PWD/build
-          echo ${{ secrets.FIREBASE_APP_ID }}
-          echo ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-        
 
       - name: Upload a Build to Firebase
         uses: mastersam07/firebase-app-distribution-action@v0.1
