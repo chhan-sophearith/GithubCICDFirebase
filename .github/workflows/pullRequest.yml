@@ -5,6 +5,13 @@ on:
     branches:
       - develop
   workflow_dispatch:
+    inputs:
+      release_notes:
+        type: string
+        required: true
+        default: 'Testing Check'
+        description: 'Change in run-on- macos-latest'
+
 jobs:
   BuildIPAFirebase:
     runs-on: macos-latest
