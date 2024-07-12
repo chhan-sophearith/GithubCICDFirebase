@@ -68,22 +68,22 @@ jobs:
           path: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
           retention-days: 3
 
-      - name: Upload IPA to Firebase App Distribution
-        run: |
-            curl -F "ipa=@$PWD/${{ runner.temp }}build/GithubCICDFirebase.ipa" \
-              -F "status=2" \
-              -F "release_notes=$(git log -1 --pretty=%B)" \
-              -H "Authorization: Bearer ${{ secrets.FIREBASE_TOKEN }}" \
-              "https://firebaseappdistribution.googleapis.com/v1alpha/apps/${{ secrets.FIREBASE_APP_ID }}/releases"
+      # - name: Upload IPA to Firebase App Distribution
+      #   run: |
+      #       curl -F "ipa=@$PWD/${{ runner.temp }}build/GithubCICDFirebase.ipa" \
+      #         -F "status=2" \
+      #         -F "release_notes=$(git log -1 --pretty=%B)" \
+      #         -H "Authorization: Bearer ${{ secrets.FIREBASE_TOKEN }}" \
+      #         "https://firebaseappdistribution.googleapis.com/v1alpha/apps/${{ secrets.FIREBASE_APP_ID }}/releases"
 
-      # - name: Upload a Build Firebase
-      #   uses: mastersam07/firebase-app-distribution-action@v0.1
-      #   with:
-      #     appId: ${{ secrets.FIREBASE_APP_ID }}
-      #     serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-      #     #releaseNotes: 'sdvjsifv fl.vnfsv f'
-      #     groups: testers
-      #     file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
+      - name: Upload a Build Firebase
+        uses: mastersam07/firebase-app-distribution-action@v0.1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+          #releaseNotes: 'sdvjsifv fl.vnfsv f'
+          groups: testers
+          file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
           
 
       # - name: Install Firebase Tools
