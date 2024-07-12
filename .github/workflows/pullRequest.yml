@@ -68,18 +68,24 @@ jobs:
           path: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
           retention-days: 3
   deploy:
-    name: Deploy
-    needs: build_with_signing
-    runs-on: ubuntu-latest
-    steps:
-      - name: Upload a Build Firebase
-        uses: wzieba/Firebase-Distribution-Github-Action@v1
-        with:
-          appId: ${{ secrets.FIREBASE_APP_ID }}
-          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-          groups: testers
-          file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
-          releaseNotes: "testing ios"
+            name: Deploy to Firebase App Distribution
+            needs: build_with_signing
+            runs-on: ubuntu-latest
+            steps:
+              - name: Download application artifact
+                uses: actions/download-artifact@v3
+                with:
+                  name: app
+                  path: ${{ runner.temp }}/build
+        
+              - name: Upload to Firebase App Distribution
+                uses: wzieba/Firebase-Distribution-Github-Action@v1
+                with:
+                  appId: ${{ secrets.FIREBASE_APP_ID }}
+                  serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+                  groups: testers
+                  file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
+                  releaseNotes: "testing ios"
 
       # - name: Upload IPA to Firebase App Distribution
       #   run: |
