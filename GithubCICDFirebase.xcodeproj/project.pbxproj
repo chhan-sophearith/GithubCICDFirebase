@@ -11,12 +11,12 @@
 		E6515A772C40CB9700925BC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6515A762C40CB9700925BC3 /* ContentView.swift */; };
 		E6515A792C40CB9800925BC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6515A782C40CB9800925BC3 /* Assets.xcassets */; };
 		E6515A7C2C40CB9800925BC3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6515A7B2C40CB9800925BC3 /* Preview Assets.xcassets */; };
-		E6515A842C40CE1100925BC3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6515A832C40CE1100925BC3 /* GoogleService-Info.plist */; };
 		E6515A862C40CED000925BC3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E6515A852C40CED000925BC3 /* FirebaseAnalytics */; };
 		E6515A882C40CED000925BC3 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = E6515A872C40CED000925BC3 /* FirebaseAnalyticsOnDeviceConversion */; };
 		E6515A8A2C40CED000925BC3 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E6515A892C40CED000925BC3 /* FirebaseAnalyticsSwift */; };
 		E6515A8C2C40CED000925BC3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E6515A8B2C40CED000925BC3 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		E6515A8E2C40CED000925BC3 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = E6515A8D2C40CED000925BC3 /* FirebaseAppCheck */; };
+		E6515A902C41060600925BC3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6515A8F2C41060600925BC3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		E6515A762C40CB9700925BC3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E6515A782C40CB9800925BC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6515A7B2C40CB9800925BC3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E6515A832C40CE1100925BC3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E6515A8F2C41060600925BC3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 		E6515A732C40CB9700925BC3 /* GithubCICDFirebase */ = {
 			isa = PBXGroup;
 			children = (
-				E6515A832C40CE1100925BC3 /* GoogleService-Info.plist */,
+				E6515A8F2C41060600925BC3 /* GoogleService-Info.plist */,
 				E6515A742C40CB9700925BC3 /* GithubCICDFirebaseApp.swift */,
 				E6515A762C40CB9700925BC3 /* ContentView.swift */,
 				E6515A782C40CB9800925BC3 /* Assets.xcassets */,
@@ -150,7 +150,7 @@
 			files = (
 				E6515A7C2C40CB9800925BC3 /* Preview Assets.xcassets in Resources */,
 				E6515A792C40CB9800925BC3 /* Assets.xcassets in Resources */,
-				E6515A842C40CE1100925BC3 /* GoogleService-Info.plist in Resources */,
+				E6515A902C41060600925BC3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +308,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.GithubCICDFirebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -337,7 +337,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.GithubCICDFirebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
