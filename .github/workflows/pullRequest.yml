@@ -1,9 +1,6 @@
 name: "Build iOS App to Firebase"
 
 on:
-  pull_request:
-    branches:
-      - develop
   workflow_dispatch:
     inputs:
       release_notes:
