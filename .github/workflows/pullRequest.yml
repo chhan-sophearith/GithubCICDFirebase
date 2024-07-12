@@ -67,6 +67,19 @@ jobs:
           name: app
           path: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
           retention-days: 3
+  deploy:
+    name: Deploy
+    needs: build_with_signing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload a Build Firebase
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+          groups: testers
+          file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
+          releaseNotes: "testing ios"
 
       # - name: Upload IPA to Firebase App Distribution
       #   run: |
@@ -76,14 +89,14 @@ jobs:
       #         -H "Authorization: Bearer ${{ secrets.FIREBASE_TOKEN }}" \
       #         "https://firebaseappdistribution.googleapis.com/v1alpha/apps/${{ secrets.FIREBASE_APP_ID }}/releases"
 
-      - name: Upload a Build Firebase
-        uses: mastersam07/firebase-app-distribution-action@v0.1
-        with:
-          appId: ${{ secrets.FIREBASE_APP_ID }}
-          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-          #releaseNotes: 'sdvjsifv fl.vnfsv f'
-          groups: testers
-          file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
+      # - name: Upload a Build Firebase
+      #   uses: mastersam07/firebase-app-distribution-action@v0.1
+      #   with:
+      #     appId: ${{ secrets.FIREBASE_APP_ID }}
+      #     serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+      #     #releaseNotes: 'sdvjsifv fl.vnfsv f'
+      #     groups: testers
+      #     file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
           
 
       # - name: Install Firebase Tools
