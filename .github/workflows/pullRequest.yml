@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 jobs:
   build_with_signing:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: check Xcode version
         run: /usr/bin/xcodebuild -version
@@ -67,30 +67,30 @@ jobs:
           name: app
           path: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
           retention-days: 3
-  deploy:
-    name: Deploy to Firebase App Distribution
-    needs: build_with_signing
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download application artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: app
-          path: '/Users/runner/work/_temp/build' #${{ runner.temp }}/build
+  # deploy:
+  #   name: Deploy to Firebase App Distribution
+  #   needs: build_with_signing
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Download application artifact
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: app
+  #         path: '/Users/runner/work/_temp/build' #${{ runner.temp }}/build
 
-      - name: List files in artifact directory
-        run: ls -l '/Users/runner/work/_temp/build'
+  #     - name: List files in artifact directory
+  #       run: ls -l '/Users/runner/work/_temp/build'
 
-      - name: Upload to Firebase App Distribution
-        if: success()  # Ensure the previous step succeeded before attempting deployment
-        uses: wzieba/Firebase-Distribution-Github-Action@v1
-        with:
-          appId: ${{ secrets.FIREBASE_APP_ID }}
-          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-          groups: testers
-          file: '/Users/runner/work/_temp/build/GithubCICDFirebase.ipa'
-         # file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa //  /Users/runner/work/_temp/build
-          releaseNotes: 'testing ios'
+  #     - name: Upload to Firebase App Distribution
+  #       if: success()  # Ensure the previous step succeeded before attempting deployment
+  #       uses: wzieba/Firebase-Distribution-Github-Action@v1
+  #       with:
+  #         appId: ${{ secrets.FIREBASE_APP_ID }}
+  #         serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+  #         groups: testers
+  #         file: '/Users/runner/work/_temp/build/GithubCICDFirebase.ipa'
+  #        # file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa //  /Users/runner/work/_temp/build
+  #         releaseNotes: 'testing ios'
 
       # - name: Upload IPA to Firebase App Distribution
       #   run: |
