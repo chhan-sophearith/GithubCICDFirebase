@@ -71,7 +71,7 @@ jobs:
           name: app
           path: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
           retention-days: 3
-
+          
   distribute-ios:
     needs: BuildIPAFirebase
     runs-on: ubuntu-latest
