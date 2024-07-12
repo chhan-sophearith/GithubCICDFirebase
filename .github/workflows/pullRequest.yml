@@ -88,8 +88,9 @@ jobs:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: testers
-          file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
-          releaseNotes: "testing ios"
+          file: '/Users/runner/work/_temp/build/GithubCICDFirebase.ipa'
+         # file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa //  /Users/runner/work/_temp/build
+          releaseNotes: 'testing ios'
 
       # - name: Upload IPA to Firebase App Distribution
       #   run: |
