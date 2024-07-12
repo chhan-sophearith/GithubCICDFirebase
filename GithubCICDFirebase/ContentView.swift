@@ -3,7 +3,7 @@
 //  GithubCICDFirebase
 //
 //  Created by Brilliant Dev on 12/7/24.
-//
+//vvebeb gerbe
 
 import SwiftUI
 
@@ -13,12 +13,8 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Hello, worlfed!")
         }
         .padding()
     }
-}
-
-#Preview {
-    ContentView()
 }
