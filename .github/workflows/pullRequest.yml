@@ -70,7 +70,7 @@ jobs:
 
       - name: Upload IPA to Firebase App Distribution
         run: |
-            curl -F "ipa=@$PWD/build/GithubCICDFirebase.ipa" \
+            curl -F "ipa=@$PWD/${{ runner.temp }}build/GithubCICDFirebase.ipa" \
               -F "status=2" \
               -F "release_notes=$(git log -1 --pretty=%B)" \
               -H "Authorization: Bearer ${{ secrets.FIREBASE_TOKEN }}" \
