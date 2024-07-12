@@ -72,11 +72,17 @@ jobs:
           path: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
           retention-days: 3
 
-      - name: Upload a Build Firebase
+      - name: Debugging Information
+        run: |
+          echo "Runner temp directory: $RUNNER_TEMP"
+          ls -la $RUNNER_TEMP
+          ls -la $RUNNER_TEMP/build
+
+      - name: Upload a Build to Firebase
         uses: mastersam07/firebase-app-distribution-action@v0.1
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-          #releaseNotes: 'sdvjsifv fl.vnfsv f'
+        #  releaseNotes: ${{ github.event.inputs.release_notes }}
           groups: 'testers'
           file: ${{ runner.temp }}/build/GithubCICDFirebase.ipa
