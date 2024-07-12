@@ -91,6 +91,6 @@ jobs:
 
       - name: Distribute to Firebase
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
         run: |
              firebase appdistribution:distribute $RUNNER_TEMP/build/GithubCICDFirebase.ipa --app ${{ secrets.FIREBASE_APP_ID }} --release-notes "Your release notes here" --groups testers
