@@ -6,8 +6,8 @@ on:
       release_notes:
         type: string
         required: true
-        default: 'Testing Check'
-        description: 'Change in run-on- macos-latest'
+        default: 'Testing build'
+        description: 'run-on- macos-latest'
 
 jobs:
   BuildIPAFirebase:
@@ -74,7 +74,7 @@ jobs:
 
       - name: Debugging Information
         run: |
-          echo "Runner temp directory: $RUNNER_TEMP"
+          echo "Runner temp directory"
           ls -la ${{ runner.temp }}/build
 
       - name: Upload a Build to Firebase
